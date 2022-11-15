@@ -1,6 +1,7 @@
 JAVA/
 JavaSettings2019.pdf
-test.txt
+*.txt
+*.class
 strumienie.pdf
 Programowanie w Języku Java dla studentów cz.1.pdf
 .idea
