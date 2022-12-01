@@ -30,18 +30,30 @@ public class MultiplicationTable {
             // FileOutputStream out = new FileOutputStream("plik.ustawien"); //zapis do pliku
             properties.store(new FileWriter("plik.ustawien"), "Plik ustawien");
         }
+
         FileReader plik = new FileReader(file);
         properties.load(plik); //wczytywanie pliku
         //Random:
-        int max_powt = Integer.parseInt(properties.getProperty("powtorzen_maximum"));
-        int min_powt = Integer.parseInt(properties.getProperty("powtorzen_minimum"));
-        int wartosc_min = Integer.parseInt(properties.getProperty("wartosc_minimum"));
-        int wartosc_max = Integer.parseInt(properties.getProperty("wartosc_maximum"));
-        float procent = Float.parseFloat(properties.getProperty("procent"));
+        int max_powt=0;
+        int min_powt=0;
+        int wartosc_min=0;
+        int wartosc_max=0;
+        float procent=0;
+        try {
+             max_powt = Integer.parseInt(properties.getProperty("powtorzen_maximum"));
+             min_powt = Integer.parseInt(properties.getProperty("powtorzen_minimum"));
+             wartosc_min = Integer.parseInt(properties.getProperty("wartosc_minimum"));
+             wartosc_max = Integer.parseInt(properties.getProperty("wartosc_maximum"));
+             procent = Float.parseFloat(properties.getProperty("procent"));
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+            System.exit(1);
+        }
         double questioncount = 1;
         double rightanswers = 1;
         double percentofgoodanswers = 0;
         int questionnumber=1;
+
        // Random generator = new Random();
         //trzeba by to wscisnac w jakiegos while
         while (true) {

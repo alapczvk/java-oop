@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class Calculator {
@@ -30,6 +32,9 @@ public class Calculator {
         output.setMargin(new Insets(0, 0, 0, 10));
         output.setText("0");
         output.setEditable(false);
+        output.setBorder(new LineBorder(Color.magenta,2));
+        Border border=output.getBorder();
+        ((LineBorder)output.getBorder()).getLineColor();
 
         JPanel r1 = new JPanel();
         JPanel r2 = new JPanel();
