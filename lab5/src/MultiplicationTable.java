@@ -5,6 +5,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MultiplicationTable {
+    enum properties {
+        wartosc_minimum,
+        wartosc_maximum,
+        powtorzen_maximum,
+        powtorzen_minimum,
+        procent
+    }
     public static void main(String[] args) throws IOException {
         Properties properties = new Properties();
         File file = null;
@@ -31,9 +38,9 @@ public class MultiplicationTable {
         int wartosc_min = Integer.parseInt(properties.getProperty("wartosc_minimum"));
         int wartosc_max = Integer.parseInt(properties.getProperty("wartosc_maximum"));
         float procent = Float.parseFloat(properties.getProperty("procent"));
-        int questioncount = 0;
-        float rightanswers = 0;
-        float percentofgoodanswers = 0;
+        double questioncount = 1;
+        double rightanswers = 1;
+        double percentofgoodanswers = 0;
         int questionnumber=1;
        // Random generator = new Random();
         //trzeba by to wscisnac w jakiegos while
@@ -56,7 +63,7 @@ public class MultiplicationTable {
 
             if (questioncount >= min_powt) {// && questioncount<=max_powt){
                 if(percentofgoodanswers>procent){
-                    System.out.println("Gratulacje na "+questioncount+" pytań na "+percentofgoodanswers+"%odpowiedz byla prawidlowa");
+                    System.out.println("Gratulacje na "+questioncount+" pytań na "+percentofgoodanswers+"% odpowiedz byla prawidlowa");
                     break;
                 }
                 else if (questioncount > max_powt) {
@@ -71,7 +78,7 @@ public class MultiplicationTable {
 
         }
             questioncount=questioncount+1;
-            percentofgoodanswers=100*(rightanswers/questioncount);
+            percentofgoodanswers=100*((rightanswers)/(questioncount));
         }
     }
     //problemem jest to ze raz wywolana funkcja generator nextint te same wyniki daje caly czas
